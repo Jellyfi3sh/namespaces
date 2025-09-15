@@ -18,7 +18,47 @@
 	  "rdfs:comment": ["A document is often based on some document template.", "A document typically serves as a record of some event, such as a meeting, an application or a request."]
       "rdfs:label": "Document",
       "rdfs:subClassOf": {
-        "@id": "schema:Thing"
+        "@id": "dcterms:Resource"
       }
+    },
+	{
+      "@id": "data:resourceContent",
+      "@type": "rdf:Property",
+      "skos:definition": "The actual content of a dcterms:Resource.",
+      "rdfs:label": "resourceContent",
+      "schema:domainIncludes": {
+        "@id": "dcterms:Resource"
+      },
+      "schema:rangeIncludes": {
+        "@id": "TODO: Anything."
+      },
+	  "rdfs:comment": "If the actual content of the resource cannot be provided via this property, it should be provided via the data:resourceContentLocation property."
+    },
+	{
+      "@id": "data:resourceContentLocation",
+      "@type": "rdf:Property",
+      "skos:definition": "The location, whether online or offline, of the content of the resource.",
+      "rdfs:label": "resourceContent",
+      "schema:domainIncludes": {
+        "@id": "dcterms:Resource"
+      },
+      "schema:rangeIncludes": {
+        "@id": "TODO."
+      },
+	  "rdfs:comment": "Should be provided if the actual content of the resource cannot be provided via the data:resourceContent property."
+    },
+	{
+      "@id": "data:versionTag",
+      "@type": "rdf:Property",
+      "skos:definition": "A textual indentifier for a specific version of a resource.",
+      "rdfs:label": "versionTag",
+      "schema:domainIncludes": {
+        "@id": "dcterms:Resource"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+	  "rdfs:comment": "E.g., '1.4.2'"
     }
+	
 ]
