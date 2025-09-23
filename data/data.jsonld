@@ -12,10 +12,33 @@
   },
   "@graph": [
 	{
+      "@id": "data:Datum",
+      "@type": "rdfs:Class",
+      "skos:definition": "A single piece (or 'atom') of information. In relational database terms it is a single cell in a table, i.e., the intersection of a row (entity) and a column (attribute); in graph database terms it is two nodes connected by an arc; in document terms it is typically the response to a single document field; in RDF terms it is a single semantic triple (i.e., a subject, a predicate and an object).",
+      "rdfs:label": "Datum",
+	  "rdfs:comment": "'Data' is the plural of 'datum', i.e., it is multiple atoms of information. It is an uncountable noun (like money) and therefore takes the singular form of a verb (i.e., 'data is...', not 'data are...')."
+      "rdfs:subClassOf": {
+        "@id": "dcterms:Resource"
+      }
+    },
+	{
+      "@id": "data:Dataset",
+      "@type": "rdfs:Class",
+      "skos:definition": "A collection of data that forms some conceptual whole.",
+      "rdfs:label": "Dataset",
+	  "rdfs:comment": "The data in a dataset typically has a single, common source."
+      "rdfs:subClassOf": {
+        "@id": "dcterms:Resource"
+      }
+    },
+	{
       "@id": "data:Document",
       "@type": "rdfs:Class",
       "skos:definition": "A piece of written, printed, or electronic material that provides information.",
-	  "rdfs:comment": ["A document is often based on some document template.", "A document typically serves as a record of some event, such as a meeting, an application or a request."]
+	  "rdfs:comment": [
+		"A document is often based on some document template.", 
+		"A document typically serves as a record of some event, such as a meeting, an application or a request."
+	  ],
       "rdfs:label": "Document",
       "rdfs:subClassOf": {
         "@id": "dcterms:Resource"
@@ -59,6 +82,71 @@
         "@id": "xsd:string"
       },
 	  "rdfs:comment": "E.g., '1.4.2'"
+    },
+	{
+      "@id": "data:DataAction",
+      "@type": "rdfs:Class",
+      "skos:definition": "Any action (e.g., observation, collection, retrieval, cleaning, anonymisation, transformation, or aggregation) performed on data or a datum that created or altered it in terms of content, shape, structure, identifiability or any other conceivable way.",
+	  "rdfs:comment": "A dataset typically goes through a process of creation (through the observation of some phenomemnon), quality control, correction, anonymisation, etc., resulting in different versions of the dataset.",
+      "rdfs:label": "DataAction",
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+	{
+      "@id": "data:input",
+      "@type": "rdf:Property",
+      "skos:definition": "The input to a data action, i.e., the resource (datum, dataset, document, etc.) being acted upon.",
+      "rdfs:label": "input",
+      "schema:domainIncludes": [
+		{ "@id": "data:DataAction" },
+	  ],
+      "schema:rangeIncludes": {
+        "@id": "dcterms:Resource"
+      },
+	  "rdfs:comment": "It is the resource in its state prior to the action in question."
+    },
+	{
+      "@id": "data:output",
+      "@type": "rdf:Property",
+      "skos:definition": "The output of a data action, i.e., the resulting resource (datum, dataset, document, etc.).",
+      "rdfs:label": "output",
+      "schema:domainIncludes": [
+		{ "@id": "data:DataAction" },
+	  ],
+      "schema:rangeIncludes": {
+        "@id": "dcterms:Resource"
+      },
+	  "rdfs:comment": "It is the resource in its state directly after the action in question."
+    },
+	{
+      "@id": "data:instrument",
+      "@type": "rdf:Property",
+      "skos:definition": "The instrument with which a data action is performed.",
+      "rdfs:label": "instrument",
+      "schema:domainIncludes": [
+		{ "@id": "data:DataAction" },
+	  ],
+      "schema:rangeIncludes": {
+        "@id": "owl:Thing"
+      },
+	  "skos:example": [
+		"A sensor that collects data.",
+		"A questionnaire used by a fieldworker.",
+		"An R script that reshapes a dataset."
+	  ]
+    },
+	{
+      "@id": "data:lineage",
+      "@type": "rdf:Property",
+      "skos:definition": "A series of data actions that explains how a (specific version of a) dataset or other resource came into being.",
+      "rdfs:label": "lineage",
+      "schema:domainIncludes": [
+		{ "@id": "dcterms:Resource" },
+	  ],
+      "schema:rangeIncludes": {
+        "@id": "data:DataAction"
+      }
     }
 	
 ]
