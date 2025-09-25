@@ -98,9 +98,9 @@
       "@type": "rdf:Property",
       "skos:definition": "The input to a data action, i.e., the resource (datum, dataset, document, etc.) being acted upon.",
       "rdfs:label": "input",
-      "schema:domainIncludes": [
-		{ "@id": "data:DataAction" },
-	  ],
+      "schema:domainIncludes": { 
+		"@id": "data:DataAction" 
+	  },
       "schema:rangeIncludes": {
         "@id": "dcterms:Resource"
       },
@@ -111,9 +111,9 @@
       "@type": "rdf:Property",
       "skos:definition": "The output of a data action, i.e., the resulting resource (datum, dataset, document, etc.).",
       "rdfs:label": "output",
-      "schema:domainIncludes": [
-		{ "@id": "data:DataAction" },
-	  ],
+      "schema:domainIncludes": { 
+		"@id": "data:DataAction" 
+	  },
       "schema:rangeIncludes": {
         "@id": "dcterms:Resource"
       },
@@ -124,9 +124,9 @@
       "@type": "rdf:Property",
       "skos:definition": "The instrument with which a data action is performed.",
       "rdfs:label": "instrument",
-      "schema:domainIncludes": [
-		{ "@id": "data:DataAction" },
-	  ],
+      "schema:domainIncludes": { 
+		"@id": "data:DataAction" 
+	  },
       "schema:rangeIncludes": {
         "@id": "owl:Thing"
       },
@@ -141,22 +141,20 @@
       "@type": "rdf:Property",
       "skos:definition": "A detailed description of a data action and its result(s).",
       "rdfs:label": "report",
-      "schema:domainIncludes": [
-		{ "@id": "data:DataAction" },
-	  ],
-      "schema:rangeIncludes": {
-        "@id": "dcterms:Resource",
-		"@id": "schema:Text"
-      }
+      "schema:domainIncludes": { "@id": "data:DataAction" },
+      "schema:rangeIncludes": [
+		{ "@id": "dcterms:Resource" },
+		{ "@id": "schema:Text" }
+	  ]
     },
 	{
       "@id": "data:lineage",
       "@type": "rdf:Property",
       "skos:definition": "A series of data actions that explains how a (specific version of a) dataset or other resource came into being.",
       "rdfs:label": "lineage",
-      "schema:domainIncludes": [
-		{ "@id": "dcterms:Resource" },
-	  ],
+      "schema:domainIncludes": { 
+		"@id": "dcterms:Resource" 
+	  },
       "schema:rangeIncludes": {
         "@id": "data:DataAction"
       }
