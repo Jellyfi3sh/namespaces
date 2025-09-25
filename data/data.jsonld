@@ -16,7 +16,7 @@
       "@type": "rdfs:Class",
       "skos:definition": "A single piece (or 'atom') of information. In relational database terms it is a single cell in a table, i.e., the intersection of a row (entity) and a column (attribute); in graph database terms it is two nodes connected by an arc; in document terms it is typically the response to a single document field; in RDF terms it is a single semantic triple (i.e., a subject, a predicate and an object).",
       "rdfs:label": "Datum",
-	  "rdfs:comment": "'Data' is the plural of 'datum', i.e., it is multiple atoms of information. It is an uncountable noun (like money) and therefore takes the singular form of a verb (i.e., 'data is...', not 'data are...')."
+	  "rdfs:comment": "'Data' is the plural of 'datum', i.e., it is multiple atoms of information. It is an uncountable noun (like money) and therefore takes the singular form of a verb (i.e., 'data is...', not 'data are...').",
       "rdfs:subClassOf": {
         "@id": "dcterms:Resource"
       }
@@ -26,7 +26,7 @@
       "@type": "rdfs:Class",
       "skos:definition": "A collection of data that forms some conceptual whole.",
       "rdfs:label": "Dataset",
-	  "rdfs:comment": "The data in a dataset typically has a single, common source."
+	  "rdfs:comment": "The data in a dataset typically has a single, common source.",
       "rdfs:subClassOf": {
         "@id": "dcterms:Resource"
       }
@@ -53,7 +53,7 @@
         "@id": "dcterms:Resource"
       },
       "schema:rangeIncludes": {
-        "@id": "TODO: Anything."
+        "@id": "owl:Thing"
       },
 	  "rdfs:comment": "If the actual content of the resource cannot be provided via this property, it should be provided via the data:resourceContentLocation property."
     },
@@ -66,7 +66,7 @@
         "@id": "dcterms:Resource"
       },
       "schema:rangeIncludes": {
-        "@id": "TODO."
+        "@id": "schema:Text"
       },
 	  "rdfs:comment": "Should be provided if the actual content of the resource cannot be provided via the data:resourceContent property."
     },
@@ -137,6 +137,19 @@
 	  ]
     },
 	{
+      "@id": "data:report",
+      "@type": "rdf:Property",
+      "skos:definition": "A detailed description of a data action and its result(s).",
+      "rdfs:label": "report",
+      "schema:domainIncludes": [
+		{ "@id": "data:DataAction" },
+	  ],
+      "schema:rangeIncludes": {
+        "@id": "dcterms:Resource",
+		"@id": "schema:Text"
+      }
+    },
+	{
       "@id": "data:lineage",
       "@type": "rdf:Property",
       "skos:definition": "A series of data actions that explains how a (specific version of a) dataset or other resource came into being.",
@@ -148,5 +161,5 @@
         "@id": "data:DataAction"
       }
     }
-	
-]
+  ]
+}
