@@ -158,6 +158,37 @@
       "schema:rangeIncludes": {
         "@id": "data:DataAction"
       }
+    },
+	
+	{
+      "@id": "data:resourceIpfsUri",
+      "@type": "rdf:Property",
+      "skos:definition": "The IPFS URI, if any, of the resource in question.",
+      "rdfs:label": "ipfsUri",
+      "schema:domainIncludes": {
+        "@id": "dcterms:Resource"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "data:resourceIpfsUriShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": {
+        "@id": "dcterms:Resource"
+      },
+      "sh:property": {
+        "sh:path": {
+          "@id": "data:resourceIpfsUri"
+        },
+        "sh:datatype": {
+          "@id": "xsd:string"
+        },
+        "sh:pattern": "^(ipfs|ipns)://[a-zA-Z0-9]+(?:/[a-zA-Z0-9/._-]*)?$",
+        "sh:minCount": 1,
+        "sh:maxCount": 1
+      }
     }
   ]
 }
